@@ -1,15 +1,28 @@
 #include<bits/stdc++.h>
 using namespace std;
+int t;
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-    if (fopen(".inp", "r"))
+    cin >> t;
+    while (t--)
     {
-        freopen(".inp", "r", stdin);
-        freopen(".out", "w", stdout);
+        long long y, x;
+        cin >> y >> x;
+        long long ans;
+        if (y > x)
+        {
+            if (y % 2 == 0)
+                ans = y * y - x + 1;
+            else ans = (y - 1) * (y - 1) + x;
+        }
+        else
+        {
+            if (x % 2 == 1)
+                ans = x * x - y + 1;
+            else ans = (x - 1) * (x - 1) + y;
+        }
+        cout << ans << '\n';
     }
-    clock_t begin = clock();
-    clock_t end = clock();
-    cerr << endl << "Time elapsed " << float(end - begin) << "s";
 }
